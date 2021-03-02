@@ -3,6 +3,7 @@
 session_start();
 
 require('mysqli_connect.php');
+
  $q1 = "select * from bookinventory";
  $r= @mysqli_query($connect,$q1);
 
@@ -21,8 +22,25 @@ body {
   margin: 0;
 
 }
+        .header{
+            max-width: 1000px;
+           margin: auto;
+            position: relative;
+
+        }
+        img
+        {
+
+        width: 1000px;
+        height: 400px;
+        }
+
+        h2{
+            margin-top: 40px;
+        }
 table {
-    margin-top: 150px;
+    margin-top: 20px;
+    margin-bottom: 60px;
   background-color: white;
   border-collapse: collapse;
   border-spacing: 0;
@@ -43,6 +61,11 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 
     <body>
+        <h2><center> Books </center></h2>
+        <div class="header">
+            <img src="pic2.jpg" style="width:100%">
+        </div>
+
     <div style="overflow-x:auto;">
   <table>
     <tr>
@@ -57,6 +80,7 @@ tr:nth-child(even){background-color: #f2f2f2}
             {
                $_SESSION['rows'][] = $row;
                 echo "<tr><td>" . $row["id"]. " </td><td><a href='checkout.php?id=$row[id]'>". $row["bookname"]."</a></td><td>".$row["quantity"]."</td></tr>";
+
             }
 
             echo "</table>";
